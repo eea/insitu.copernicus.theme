@@ -1,0 +1,9 @@
+<ul id="copernicus-footer-info">
+  <li class="first" i18n:translate="">Copyright Copernicus Programme</li>
+  <li>
+    <a href="https://status.eea.europa.eu/" i18n:translate="">Status</a>
+  </li>
+  <li>
+    <a href="#" class="go-top" i18n:translate="">Top <i class="fa fa-arrow-up" i18n:name="icon"></i></a>
+  </li>
+</ul>

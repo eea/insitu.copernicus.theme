@@ -1,0 +1,249 @@
+<metal:page define-macro="master">
+<tal:doctype tal:replace="structure string:&lt;!DOCTYPE html&gt;" />
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      tal:define="portal_state context/@@plone_portal_state;
+                  context_state context/@@plone_context_state;
+                  plone_view context/@@plone;
+                  lang portal_state/language;
+                  view nocall:view | nocall: plone_view;
+                  dummy python: plone_view.mark_view(view);
+                  portal_url portal_state/portal_url;
+                  checkPermission nocall: context/portal_membership/checkPermission;
+                  site_properties context/portal_properties/site_properties;
+                  ajax_load request/ajax_load | nothing;
+                  ajax_include_head request/ajax_include_head | nothing;
+                  dummy python:request.RESPONSE.setHeader('X-UA-Compatible', 'IE=edge,chrome=1');"
+      tal:attributes="lang lang;">
+
+  <metal:cache use-macro="context/global_cache_settings/macros/cacheheaders">
+    Get the global cache headers located in global_cache_settings.
+  </metal:cache>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" tal:attributes="content python:getattr(context, 'seo_keywords', 'insitu, Copernicus')">
+
+  <metal:baseslot define-slot="base">
+    <base tal:attributes="href plone_view/renderBase" /><!--[if lt IE 7]></base><![endif]-->
+  </metal:baseslot>
+
+  <tal:notajax tal:condition="python:not ajax_load or ajax_include_head">
+    <div tal:replace="structure provider:plone.htmlhead" />
+
+    <tal:comment replace="nothing">
+      Various slots where you can insert elements in the header from a template.
+    </tal:comment>
+
+    <metal:styleslot define-slot="style_slot" />
+
+     <script type="text/javascript">/* jslint:disable */
+        !function(){var e=function(){function e(){if(!r.isReady){try{document.documentElement.doScroll("left")}catch(t){return void setTimeout(e,1)}r.ready()}}var t,n,o={};o["[object Boolean]"]="boolean",o["[object Number]"]="number",o["[object String]"]="string",o["[object Function]"]="function",o["[object Array]"]="array",o["[object Date]"]="date",o["[object RegExp]"]="regexp",o["[object Object]"]="object";var r={isReady:!1,readyWait:1,holdReady:function(e){e?r.readyWait++:r.ready(!0)},ready:function(e){if(!0===e&&!--r.readyWait||!0!==e&&!r.isReady){if(!document.body)return setTimeout(r.ready,1);if(r.isReady=!0,!0!==e&&--r.readyWait>0)return;t.resolveWith(document,[window.jQuery])}},bindReady:function(){if(!t){if(t=r._Deferred(),"complete"===document.readyState)return setTimeout(r.ready,1);if(document.addEventListener)document.addEventListener("DOMContentLoaded",n,!1),window.addEventListener("load",r.ready,!1);else if(document.attachEvent){document.attachEvent("onreadystatechange",n),window.attachEvent("onload",r.ready);var o=!1;try{o=null==window.frameElement}catch(e){}document.documentElement.doScroll&&o&&e()}}},_Deferred:function(){var e,t,n,o=[],i={done:function(){if(!n){var t,d,a,c,u,y=arguments;for(e&&(u=e,e=0),t=0,d=y.length;t<d;t++)a=y[t],"array"===(c=r.type(a))?i.done.apply(i,a):"function"===c&&o.push(a);u&&i.resolveWith(u[0],u[1])}return this},resolveWith:function(r,i){if(!n&&!e&&!t){i=i||[],t=1;try{for(;o[0];)o.shift().apply(r,i)}finally{e=[r,i],t=0}}return this},resolve:function(){return i.resolveWith(this,arguments),this},isResolved:function(){return!(!t&&!e)},cancel:function(){return n=1,o=[],this}};return i},type:function(e){return null==e?String(e):o[Object.prototype.toString.call(e)]||"object"}};return document.addEventListener?n=function(){document.removeEventListener("DOMContentLoaded",n,!1),r.ready()}:document.attachEvent&&(n=function(){"complete"===document.readyState&&(document.detachEvent("onreadystatechange",n),r.ready())}),function(e){r.bindReady();r.type(e);t.done(e)}}();window.jQuery=$=jq=function(t,n){return"function"==typeof t?e(t):new jQuery.fn.init(t,n)},window.jQuery.fn=window.jQuery.prototype={init:function(){return this}},window.jQuery.fn.init.prototype=window.jQuery.fn,window.jQuery.fn.ready=e}();
+    </script>
+
+    <link tal:replace="structure provider:plone.htmlhead.links" />
+    <!--meta name="viewport" content="maximum-scale = 1.0" /-->
+  </tal:notajax>
+  <metal:topslot define-slot="top_slot" />
+</head>
+
+<body tal:define="isRTL portal_state/is_rtl;
+                  sl python:plone_view.have_portlets('plone.leftcolumn', view);
+                  sr python:plone_view.have_portlets('plone.rightcolumn', view);
+                  body_class python:plone_view.bodyClass(template, view);
+                  classes python:context.restrictedTraverse('@@sunburstview').getColumnsClasses(view)"
+      tal:attributes="class body_class;
+                      dir python:isRTL and 'rtl' or 'ltr'">
+
+  <div id="visual-portal-wrapper">
+
+    <!-- header -->
+    <div id="portal-top" class="row" i18n:domain="plone" tal:condition="not:ajax_load">
+      <div class="cell width-full position-0">
+        <div tal:replace="structure provider:plone.portaltop" />
+      </div>
+
+      <div class="row" id="site-identity">
+        <a id="portal-logo" href="https://www.copernicus.eu/" target="_blank" title="copernicus.eu" i18n:attributes="title">
+          <img src="Copernicus_logo_RGB.png" alt="Copernicus logo" i18n:attributes="alt"/>
+        </a>
+        <div id="portal-title-container">
+          <div id="portal-title">
+            <h1>
+              <a href="" title="Go to homepage" tal:attributes="href portal_url" i18n:attributes="title">
+                <span tal:replace="portal_state/portal_title">
+                  Site Title: Copernicus Land Monitoring Services or Copernicus In Situ Component
+                </span>
+              </a>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div><!-- header -->
+
+    <!-- content -->
+    <div id="portal-columns" class="row">
+
+      <div id="portal-column-content" class="cell" tal:attributes="class classes/content">
+
+        <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
+
+        <metal:block define-slot="content">
+
+          <div metal:define-macro="content"
+               tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
+               tal:attributes="class python:show_border and 'documentEditable' or ''">
+
+            <div id="edit-bar" tal:condition="show_border"
+                 tal:content="structure provider:plone.contentviews" />
+
+            <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+              Status message
+            </div>
+
+            <metal:slot define-slot="body">
+              <div id="content">
+
+                <metal:header define-slot="header" tal:content="nothing">
+                  Visual Header
+                </metal:header>
+
+                <metal:bodytext define-slot="main">
+
+                  <div id="viewlet-above-content-title" tal:content="structure provider:plone.abovecontenttitle"
+                       tal:condition="not:ajax_load" />
+
+                  <metal:title define-slot="content-title">
+                    <metal:comment tal:content="nothing">
+                      If you write a custom title always use
+                      <h1 class="documentFirstHeading"></h1> for it
+                    </metal:comment>
+                    <h1 metal:use-macro="context/kss_generic_macros/macros/generic_title_view">
+                      Generic KSS Title. Is rendered with class="documentFirstHeading".
+                    </h1>
+                  </metal:title>
+
+                  <div id="viewlet-below-content-title" tal:content="structure provider:plone.belowcontenttitle"
+                       tal:condition="not:ajax_load" />
+
+                  <metal:description define-slot="content-description">
+                    <metal:comment tal:content="nothing">
+                      If you write a custom description always use
+                      <div class="documentDescription"></div> for it
+                    </metal:comment>
+                    <div metal:use-macro="context/kss_generic_macros/macros/generic_description_view">
+                      Generic KSS Description. Is rendered with class="documentDescription".
+                    </div>
+                  </metal:description>
+
+                  <div id="viewlet-above-content-body" tal:content="structure provider:plone.abovecontentbody"
+                       tal:condition="not:ajax_load" />
+
+                  <div id="content-core">
+                    <metal:text define-slot="content-core" tal:content="nothing">
+                      Page body text
+                    </metal:text>
+                  </div>
+                  <div id="viewlet-below-content-body" tal:content="structure provider:plone.belowcontentbody"
+                       tal:condition="not:ajax_load" />
+
+                </metal:bodytext>
+              </div>
+            </metal:slot>
+
+            <metal:sub define-slot="sub" tal:content="nothing">
+              This slot is here for backwards compatibility only.
+              Don't use it in your custom templates.
+            </metal:sub>
+          </div>
+        </metal:block>
+
+        <div id="viewlet-below-content" tal:content="structure provider:plone.belowcontent" tal:condition="not:ajax_load" />
+      </div>
+
+      <tal:notajax tal:condition="not:ajax_load">
+        <div id="portal-column-one"
+             class="cell width-1:4 position-0"
+             metal:define-slot="column_one_slot"
+             tal:condition="sl"
+             tal:attributes="class classes/one">
+          <metal:portlets define-slot="portlets_one_slot">
+            <tal:block replace="structure provider:plone.leftcolumn" />
+          </metal:portlets>
+        </div>
+
+        <div id="portal-column-two"
+             class="cell width-1:4 position-3:4"
+             metal:define-slot="column_two_slot"
+             tal:condition="sr"
+             tal:attributes="class classes/two">
+          <metal:portlets define-slot="portlets_two_slot">
+            <tal:block replace="structure provider:plone.rightcolumn" />
+          </metal:portlets>
+        </div>
+      </tal:notajax>
+    </div><!-- content -->
+
+    <!--  footer -->
+    <div id="portal-footer-wrapper" class="row" i18n:domain="plone"
+         tal:condition="not:ajax_load">
+      <div class="cell width-full position-0">
+        <div tal:replace="structure provider:plone.portalfooter" />
+        <div id="kss-spinner">
+          <img tal:attributes="src string:${portal_url}/spinner.gif" alt="Preview image" i18n:attributes="alt" />
+        </div>
+      </div>
+    </div><!--  footer -->
+
+  </div>
+
+  <div id="jscripts">
+      <script type="text/javascript">var w_inner_height = window.innerHeight;
+            var w_inner_width = window.innerWidth;
+            function isElementInViewport (el) {
+                // Detect if element is in viewport
+                var rect = el.getBoundingClientRect();
+                return (
+                        rect.top > 0 &&
+                        rect.left > 0 &&
+                        rect.bottom <= w_inner_height &&
+                        rect.right <=  w_inner_width
+                    );
+            }
+            function enableLazy(element) {
+                var source = element.src;
+                var classes = element.className.length ? element.className + ' ' : '';
+                element.setAttribute('data-src', source);
+                if (classes.indexOf('skip_lazy') === -1) {
+                    element.className =  classes + 'lazy';
+                    element.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=';
+                }
+            }
+
+            window.lazyElements = [];
+
+            var imgs = document.querySelectorAll('img');
+            Array.prototype.forEach.call(imgs, function(el){
+                if (isElementInViewport(el) === false) {
+                    enableLazy(el);
+                    window.lazyElements.push(el);
+                }
+            });
+
+      </script>
+      <tal:scripts replace="structure provider:plone.resourceregistries.scripts" />
+      <metal:javascriptslot define-slot="javascript_head_slot" />
+      <metal:headslot define-slot="head_slot" />
+  </div>
+
+  <div id="sentry-config">
+    <!-- Sentry start -->
+    <div tal:replace="structure context/@@sentry" />
+    <script type="text/javascript" src="/++resource++raven.min.js"></script>
+    <script type="text/javascript" src="/++resource++sentry.js"></script>
+    <!-- Sentry end -->
+  </div>
+</body>
+</html>
+
+</metal:page>

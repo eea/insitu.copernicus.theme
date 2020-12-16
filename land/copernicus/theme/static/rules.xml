@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules xmlns="http://namespaces.plone.org/diazo"
+       xmlns:css="http://namespaces.plone.org/diazo/css"
+       xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- REDESIGN -->
+  <!-- move scripts to bottom of body tag -->
+  <after theme-children="/html/body" content="//*[@id='jscripts']/script" />
+
+  <rules css:if-content=".section-copernicus-the-european-earth-observation-programme">
+    <!-- Homepage rules -->
+    <theme href="redesign-index.html" />
+
+    <!-- General -->
+    <drop theme="/html/head/title" />
+    <after content="/html/head/title" theme-children="/html/head" />
+    <copy attributes="class id dir" content="/html/body" theme="/html/body" />
+    <replace content="/html/head/meta" css:theme="[data-diazo='meta-after-placeholder']" />
+    <drop css:theme=".portlet-content" />
+
+    <after theme-children="/html/head" content="//*[@id='portal-footer-wrapper']/div/noscript" /> <!-- Matomo Image Tracker -->
+    <after theme-children="/html/head" content="//*[@id='portal-footer-wrapper']/div/script" /> <!-- Google Analytics & Matomo -->
+
+    <after theme-children="/html/body" content="//*[@id='sentry-config']" method="raw" />
+    <drop content="//*[@id='sentry']" method="raw" />
+
+    <replace content="/html/head/base | /html/head/style | /html/head/script | /html/head/link | /html/head/comment()"
+             css:theme="[data-diazo='links-and-scripts']" />
+
+    <!-- Website title link -->
+    <rules css:if-content="#portaltab-index_html">
+      <copy
+        attributes="href"
+        css:content="#portaltab-index_html"
+        css:theme="[data-diazo='website-title']"
+        />
+    </rules>
+
+    <!-- Images slider section -->
+    <replace css:theme="[data-diazo='insitu-carousel']"
+             href="homepage-content/homepage-images-slider" method="document"
+             css:content-children="#content-core" />
+    <drop css:content="#content-core [data-diazo='insitu-carousel']" />
+
+    <!-- Observations and spatial data section -->
+    <!--<replace css:theme="[data-diazo='insitu-observations-spatial-data']"-->
+             <!--href="homepage-content/homepage-observations-spatial-data" method="document"-->
+             <!--css:content-children="#content-core" />-->
+    <!--<drop css:content="#content-core [data-diazo='insitu-observations-spatial-data']" />-->
+
+    <!-- Homepage tags section -->
+    <!--<replace css:theme="[data-diazo='insitu-tags']"-->
+             <!--href="homepage-content/homepage-tags" method="document"-->
+             <!--css:content-children="#content-core" />-->
+    <!--<drop css:content="#content-core [data-diazo='insitu-tags']" />-->
+
+    <!-- Homepage stay informed -->
+    <!--<replace css:theme="[data-diazo='insitu-stay-informed']"-->
+             <!--href="homepage-content/homepage-stay-informed" method="document"-->
+             <!--css:content-children="#content-core" />-->
+    <!--<drop css:content="#content-core [data-diazo='insitu-stay-informed']" />-->
+
+    <!-- Homepage Copernicus services -->
+    <!--<replace css:theme="[data-diazo='insitu-copernicus-services']"-->
+             <!--href="homepage-content/homepage-copernicus-services" method="document"-->
+             <!--css:content-children="#content-core" />-->
+    <!--<drop css:content="#content-core [data-diazo='insitu-copernicus-services']" />-->
+
+    <!-- Homepage footer -->
+    <!--<replace css:theme="[data-diazo='insitu-footer']"-->
+             <!--href="homepage-content/homepage-footer" method="document"-->
+             <!--css:content-children="#content-core" />-->
+    <!--<drop css:content="#content-core [data-diazo='insitu-footer']" />-->
+
+    <!-- Right column -->
+    <replace css:theme-children="[data-diazo='insitu-events-list']" css:content-children="#viewlet-below-content #insitu-events" />
+    <drop css:content="#viewlet-below-content #insitu-events" />
+    <replace css:theme-children="[data-diazo='insitu-news-list']" css:content-children="#viewlet-below-content #insitu-news" />
+    <drop css:content="#viewlet-below-content #insitu-news" />
+    <replace css:theme-children="[data-diazo='insitu-reports-list']" css:content-children="#viewlet-below-content #insitu-reports" />
+    <drop css:content="#viewlet-below-content #insitu-reports" />
+
+    <!-- Main content -->
+    <replace css:theme-children="article.main" css:content-children="#portal-column-content" />
+    <drop css:content="h1#parent-fieldname-title" />
+    <drop css:content="#plone-document-byline" />
+    <drop css:content="#portal-breadcrumbs" />
+
+    <!-- Top right corner menu -->
+    <replace css:theme-children="div.utils ul.insitu-list-separated">
+      <xsl:for-each css:select="#portal-siteactions li">
+        <xsl:copy-of select="current()" />
+      </xsl:for-each>
+      <xsl:for-each css:select="#portal-personaltools-wrapper li a">
+        <li>
+          <xsl:copy-of select="current()" />
+        </li>
+      </xsl:for-each>
+    </replace>
+
+    <!-- Navbar -->
+    <replace
+      css:theme-children=".navbar.navbar-default ul.nav.navbar-nav"
+      css:content="#portal-globalnav > li"
+      />
+
+    <!-- Footer -->
+    <replace css:theme="[data-diazo='insitu-partners-logos']" css:content=".portlet-static-partners ul.partners-logos" method="raw" />
+    <drop css:content=".portlet-static-partners ul.partners-logos" />
+    <replace css:theme="[data-diazo='link-more-partners']" css:content="[data-diazo='link-more-partners']" />
+
+    <replace css:theme-children="footer.footer .text ul.list-inline">
+      <xsl:for-each css:select="ul#copernicus-footer-info li">
+        <xsl:copy-of select="current()" />
+      </xsl:for-each>
+    </replace>
+  </rules>
+
+  <rules css:if-not-content=".section-copernicus-the-european-earth-observation-programme">
+    <!-- Simple pages rules -->
+    <rules css:if-content="#visual-portal-wrapper">
+      <!-- REDESIGN -->
+      <theme href="redesign-simple-page.html" />
+
+      <!-- General -->
+      <drop theme="/html/head/title" />
+      <after content="/html/head/title" theme-children="/html/head" />
+      <copy attributes="class id dir" content="/html/body" theme="/html/body" />
+      <replace content="/html/head/meta" css:theme="[data-diazo='meta-after-placeholder']" />
+
+      <after theme-children="/html/head" content="//*[@id='portal-footer-wrapper']/div/noscript" /> <!-- Matomo Image Tracker -->
+      <after theme-children="/html/head" content="//*[@id='portal-footer-wrapper']/div/script" /> <!-- Google Analytics & Matomo -->
+
+      <after theme-children="/html/body" content="//*[@id='sentry-config']" method="raw" />
+      <drop content="//*[@id='sentry']" method="raw" />
+
+      <replace content="/html/head/base | /html/head/style | /html/head/script | /html/head/link | /html/head/comment()"
+               css:theme="[data-diazo='links-and-scripts']" />
+
+      <!-- Website title link -->
+      <rules css:if-content="#portaltab-index_html">
+        <copy
+          attributes="href"
+          css:content="#portaltab-index_html a"
+          css:theme="[data-diazo='website-title']"
+          />
+      </rules>
+
+      <!-- Top right corner menu -->
+      <replace css:theme-children="div.utils ul.insitu-list-separated">
+        <xsl:for-each css:select="#portal-siteactions li">
+          <xsl:copy-of select="current()" />
+        </xsl:for-each>
+        <xsl:for-each css:select="#portal-personaltools-wrapper li a">
+          <li>
+            <xsl:copy-of select="current()" />
+          </li>
+        </xsl:for-each>
+      </replace>
+
+      <!-- Navbar -->
+      <replace
+        css:theme-children=".navbar.navbar-default ul.nav.navbar-nav"
+        css:content="#portal-globalnav > li"
+        />
+
+      <!-- Document title -->
+      <rules css:if-content="h1#insitu-long-title">
+        <replace css:theme="[data-diazo='insitu-long-title']" css:content="h1#insitu-long-title" method="raw" />
+        <drop css:content="h1#insitu-long-title" />
+      </rules>
+
+      <rules css:if-not-content="h1#insitu-long-title">
+        <drop css:theme="[data-diazo='insitu-long-title']" />
+      </rules>
+
+      <rules css:if-content="h1#parent-fieldname-title">
+        <replace css:theme-children="#insitu-article-title" css:content-children="h1#parent-fieldname-title" />
+        <drop css:content="h1#parent-fieldname-title" />
+      </rules>
+
+      <rules css:if-content="h1.documentFirstHeading">
+        <replace css:theme-children="#insitu-article-title" css:content-children="h1.documentFirstHeading" />
+        <drop css:content="h1.documentFirstHeading" />
+      </rules>
+
+      <rules css:if-content="h1.insitu-title">
+        <replace css:theme-children="#insitu-article-title" css:content-children="h1.insitu-title" />
+        <drop css:content="h1.insitu-title" />
+      </rules>
+
+      <!-- Simple page tags section -->
+      <!--
+      <replace css:theme="[data-diazo='insitu-tags']"
+               href="simplepage-content/simplepage-tags" method="document"
+               css:content-children="#content-core" />
+      <drop css:content="#content-core [data-diazo='insitu-tags']" />
+
+      -->
+      <!-- Simple page stay informed -->
+      <!--
+      <replace css:theme="[data-diazo='insitu-stay-informed']"
+               href="simplepage-content/simplepage-stay-informed" method="document"
+               css:content-children="#content-core" />
+      <drop css:content="#content-core [data-diazo='insitu-stay-informed']" />
+      -->
+
+      <!-- Simple page footer -->
+      <!--
+      <replace css:theme="[data-diazo='insitu-footer']"
+               href="simplepage-content/simplepage-footer" method="document"
+               css:content-children="#content-core" />
+      <drop css:content="#content-core [data-diazo='insitu-footer']" />
+      -->
+
+      <!-- Footer -->
+      <replace css:theme="[data-diazo='insitu-partners-logos']" css:content=".portlet-static-partners ul.partners-logos" method="raw" />
+      <drop css:content=".portlet-static-partners ul.partners-logos" />
+      <replace css:theme="[data-diazo='link-more-partners']" css:content="[data-diazo='link-more-partners']" />
+
+      <replace css:theme-children="footer.footer .text ul.list-inline">
+        <xsl:for-each css:select="ul#copernicus-footer-info li">
+          <xsl:copy-of select="current()" />
+        </xsl:for-each>
+      </replace>
+    </rules>
+
+    <!-- Main content -->
+    <replace css:theme-children="article.main" css:content-children="#portal-column-content"/>
+
+    <replace css:theme="[data-diazo='insitu-user-corner']" css:content-children=".portlet-static-user-corner-menu .portletItem" method="raw" />
+    <drop css:content=".portlet-static-user-corner-menu" />
+
+    <rules css:if-content=".managePortletsLink">
+      <after css:theme-children="[data-diazo='insitu-secondary-column']" css:content=".managePortletsLink" />
+    </rules>
+
+    <!-- <replace css:theme-children="[data-diazo='insitu-secondary-column']" css:content-children="#portal-column-two" /> -->
+
+    <!-- Right column -->
+    <replace css:theme-children="[data-diazo='insitu-events-list']" css:content-children="#viewlet-below-content #insitu-events" />
+    <drop css:content="#viewlet-below-content #insitu-events" />
+    <replace css:theme-children="[data-diazo='insitu-news-list']" css:content-children="#viewlet-below-content #insitu-news" />
+    <drop css:content="#viewlet-below-content #insitu-news" />
+    <replace css:theme-children="[data-diazo='insitu-reports-list']" css:content-children="#viewlet-below-content #insitu-reports" />
+    <drop css:content="#viewlet-below-content #insitu-reports" />
+
+    <!-- Breadcrumbs -->
+    <after css:theme-children="div.breadcrumb" css:content-children="#portal-breadcrumbs" />
+    <drop css:content="#portal-breadcrumbs" />
+
+    <!-- Print page -->
+    <replace css:theme=".insitu-print-button">
+      <a href="javascript:window.print()" class="printButton">
+        <i class="fa fa-print"></i> Print
+      </a>
+    </replace>
+
+  </rules>
+
+  <!-- PARTICULAR PAGES -->
+
+  <!-- News -->
+  <rules css:if-content="body.template-news_listing">
+    <drop css:theme="[data-diazo='insitu-news-list']" />
+    <drop css:theme="[data-diazo='insitu-tags']" />
+  </rules>
+
+  <!-- Manage portlets -->
+  <rules css:if-content="body.template-manage-portlets">
+    <after css:theme-children="article.main" css:content-children="#portal-column-one" />
+    <after css:theme-children="article.main" css:content-children="#portal-column-two" />
+  </rules>
+
+  <!-- Login -->
+  <rules css:if-content="body.template-login_form">
+    <drop css:theme="[data-diazo='insitu-secondary-column']" />
+    <drop css:theme="[data-diazo='insitu-tags']" />
+    <replace css:theme-children="#insitu-article-title" css:content-children="h1#login_page_title" />
+    <drop css:content="h1#login_page_title" />
+  </rules>
+
+  <!-- Login failed -->
+  <rules css:if-content="body.template-login_failed">
+    <drop css:theme="[data-diazo='insitu-secondary-column']" />
+    <drop css:theme="[data-diazo='insitu-tags']" />
+    <replace css:theme-children="#insitu-article-title" css:content-children="h1#login_page_title" />
+    <drop css:content="h1#login_page_title" />
+  </rules>
+
+  <!-- Register -->
+  <rules css:if-content="body.template-register">
+    <drop css:theme="[data-diazo='insitu-secondary-column']" />
+    <drop css:theme="[data-diazo='insitu-tags']" />
+  </rules>
+
+  <rules css:if-not-content=".portlet-static-partners ul.partners-logos">
+    <drop css:theme="footer .partners" />
+  </rules>
+
+
+</rules>
