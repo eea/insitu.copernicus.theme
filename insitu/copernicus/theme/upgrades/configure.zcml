@@ -5,7 +5,7 @@
   <genericsetup:upgradeSteps
     source="1004"
     destination="1005"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import profile steps with changes: types"
@@ -16,7 +16,7 @@
   <genericsetup:upgradeSteps
     source="*"
     destination="*"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import profile steps with changes: stylesheets"
@@ -32,7 +32,7 @@
   <genericsetup:upgradeSteps
     source="*"
     destination="1004"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import profile steps with changes: javascripts"
@@ -43,7 +43,7 @@
   <genericsetup:upgradeSteps
     source="*"
     destination="2.4.1"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Redesign related step: import stylesheets."
@@ -54,7 +54,7 @@
   <genericsetup:upgradeSteps
     source="2.4.1"
     destination="2.4.2"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Redesign related step: import stylesheets bundles."
@@ -65,7 +65,7 @@
   <genericsetup:upgradeSteps
     source="2.4.2"
     destination="2.4.3"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import jsregistry to have bootstrap."
@@ -76,7 +76,7 @@
   <genericsetup:upgradeSteps
     source="2.4.3"
     destination="2.4.4"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Redesign related step: fix print.css wrong bundle."
@@ -87,7 +87,7 @@
   <genericsetup:upgradeSteps
     source="2.4.4"
     destination="2.4.5"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import js to have sticky menu."
@@ -98,7 +98,7 @@
   <genericsetup:upgradeSteps
     source="2.4.5"
     destination="2.4.6"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Fix broken layout on IE removing media screen for redesign-app.css."
@@ -109,7 +109,7 @@
   <genericsetup:upgradeSteps
     source="2.4.6"
     destination="2.4.7"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import viewlets"
@@ -122,7 +122,7 @@
   <genericsetup:upgradeSteps
     source="2.4.7"
     destination="2.4.8"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import profile steps with changes: skins"
@@ -133,7 +133,7 @@
   <genericsetup:upgradeSteps
     source="2.4.8"
     destination="2.4.9"
-    profile="land.copernicus.theme:default">
+    profile="insitu.copernicus.theme:default">
 
     <genericsetup:upgradeDepends
       title="Import profile steps with changes: css, js, skins, propertiestool, browserlayer"

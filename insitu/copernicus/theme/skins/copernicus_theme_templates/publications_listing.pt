@@ -15,7 +15,7 @@
 
     <h1 class="insitu-title" i18n:translate="">Publications</h1>
 
-    <div class="land-publications-container"
+    <div class="insitu-publications-container"
          tal:define="files python:context.getFolderContents(contentFilter={'portal_type':['File']});
                      files_per_row python:3;
                      files_rows python:[files[i:i+files_per_row] for i in range(0, len(files), files_per_row)];">
@@ -23,24 +23,24 @@
       <tal:rows tal:repeat="files_columns python:files_rows">
         <div class="row">
           <tal:columns tal:repeat="file python:files_columns">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 land-publication-item"
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 insitu-publication-item"
                  tal:define="file_obj python:file.getObject();
                              file_title python:file_obj.Title();
                              file_url python:file_obj.absolute_url();
                              file_view_url python:file_obj.absolute_url() + '/view';
                              file_cover_img python:file_url + '/image_preview';">
 
-              <div class="land-publication-image">
-                <a href="https://land.copernicus.eu/user-corner/publications/gio-land-high-resolution-layers/view"
+              <div class="insitu-publication-image">
+                <a href="https://insitu.copernicus.eu/user-corner/publications/gio-insitu-high-resolution-layers/view"
                    tal:attributes="href python:file_view_url">
-                  <img src="https://land.copernicus.eu/user-corner/publications/gio-land-high-resolution-layers/image_preview" alt="GIO land High Resolution Layers" title="GIO land High Resolution Layers"
+                  <img src="https://insitu.copernicus.eu/user-corner/publications/gio-insitu-high-resolution-layers/image_preview" alt="GIO insitu High Resolution Layers" title="GIO insitu High Resolution Layers"
                        i18n:attributes="alt; title"
                        tal:attributes="src python:file_cover_img;
                                        alt python:file_title">
                 </a>
               </div>
 
-              <h3 class="land-publication-title" tal:content="python:file_title">GIO land High Resolution</h3>
+              <h3 class="insitu-publication-title" tal:content="python:file_title">GIO insitu High Resolution</h3>
             </div>
           </tal:columns>
         </div>

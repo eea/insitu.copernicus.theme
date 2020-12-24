@@ -1,4 +1,4 @@
 Introduction
 ============
 
-CSS files for land.copernicus.theme.
+CSS files for insitu.copernicus.theme.
