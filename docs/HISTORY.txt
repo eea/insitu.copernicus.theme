@@ -1,7 +1,8 @@
 Changelog
 =========
 
-"Versions" as used by insitu.copernicus.eu. Just note what and when happened.
+2.6.0 - (unreleased)
+--------------------
 
 2.5.9 - (2020-07-24)
 --------------------

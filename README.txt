@@ -1,4 +1,5 @@
-land.copernicus.theme
-=====================
+land.copernicus.theme static directory
+======================================
 
-Plone theme for land.copernicus.eu
+The static resources and the symlinks to static resources exist here to satisfy
+the offline theme viewing requirements.
