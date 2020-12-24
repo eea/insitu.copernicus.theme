@@ -1,17 +1,14 @@
 .icons-on .contenttype-folder {
-  /*background: no-repeat transparent 0px 4px url(/++resource++land.copernicus.content.images/land.png);*/
   background: no-repeat transparent 0px 6px url(arrow.png);
 }
 
 .contenttype-landsection {
   padding-left: 20px ! important;
-  /*background: no-repeat transparent 0px 2px url(/++resource++land.copernicus.content.images/land.png); */
   background: no-repeat transparent 0px 2px url(arrow.png);
 }
 
 .contenttype-landitem {
   padding-left: 20px ! important;
-  /* background: no-repeat transparent 0px 2px url(/++resource++land.copernicus.content.images/land.png); */
   background: no-repeat transparent 0px 2px url(arrow.png);
 }
 
