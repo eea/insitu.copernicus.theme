@@ -1,7 +1,6 @@
 
 /* - public.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/public.css?original=1 */
 /* */
 * { margin: 0; padding: 0; }
 * :link,:visited { text-decoration:none }
@@ -1975,7 +1974,6 @@ display: none;
 
 /* - collective.js.jqueryui.custom.min.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/collective.js.jqueryui.custom.min.css?original=1 */
 /* */
 .ui-helper-hidden { display: none; }
 .ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px); }
@@ -2391,7 +2389,6 @@ dl.portlet .ui-state-highlight a, dl.portlet .ui-widget-content .ui-state-highli
 
 /* - columns.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/columns.css?original=1 */
 div.row {
 float: left;
 width: 100%;
@@ -2462,7 +2459,6 @@ div.position-2\3a 3 {margin-left: -32.205%;} /* */
 
 /* - portlets.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/portlets.css?original=1 */
 .managedPortlet {
 margin: 0.8em 0;
 }
@@ -2552,7 +2548,6 @@ display: block;
 
 /* - ++resource++plone.app.discussion.stylesheets/discussion.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/++resource++plone.app.discussion.stylesheets/discussion.css?original=1 */
 /* */
 .discussion .hide {
 display: none;
@@ -2679,7 +2674,6 @@ font-weight:bold;
 
 /* - ploneKss.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/ploneKss.css?original=1 */
 #kss-spinner {
 display:none;
 width: 20px;
@@ -2737,7 +2731,6 @@ font-size: 55% !important;
 
 /* - ++resource++tinymce.stylesheets/tinymce.css - */
 @media screen {
-/* http://land.copernicus.eu/portal_css/++resource++tinymce.stylesheets/tinymce.css?original=1 */
 #content ul.listTypeDisc {
 list-style-type: disc;
 list-style-image: none;
@@ -2776,7 +2769,6 @@ list-style-image: none;
 
 /* - print.css - */
 @media print {
-/* http://land.copernicus.eu/portal_css/print.css?original=1 */
 /* */
 body .up-menu,
 .top-menu,
@@ -2905,7 +2897,6 @@ size: landscape;
 
 /* - mobile.css - */
 @media handheld, screen and (max-device-width: 480px) {
-/* http://land.copernicus.eu/portal_css/mobile.css?original=1 */
 /* */
 #portal-column-one,
 #portal-column-two,
