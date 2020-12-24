@@ -41,17 +41,17 @@
     />
 
   <browser:resource
-    name="land.copernicus.theme.design.js"
+    name="insitu.copernicus.theme.design.js"
     file="design.js"
     />
 
   <browser:resource
-    name="land.copernicus.theme.bootstrap-min.js"
+    name="insitu.copernicus.theme.bootstrap-min.js"
     file="bootstrap-min.js"
     />
 
   <browser:resource
-    name="land.copernicus.theme.sticky-menu.js"
+    name="insitu.copernicus.theme.sticky-menu.js"
     file="sticky-menu.js"
     />
 

@@ -1,4 +1,4 @@
 Introduction
 ============
 
-Images used by land.copernicus.theme.
+Images used by insitu.copernicus.theme.
