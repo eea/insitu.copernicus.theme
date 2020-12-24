@@ -1,4 +1,4 @@
-recursive-include land *
+recursive-include insitu *
 recursive-include docs *
 global-exclude *.pyc
 global-exclude *~
