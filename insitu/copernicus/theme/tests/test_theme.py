@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from land.copernicus.theme.testing import FUNCTIONAL_TESTING
+from insitu.copernicus.theme.testing import FUNCTIONAL_TESTING
 from plone.app.theming.interfaces import IThemeSettings
 from plone.registry.interfaces import IRegistry
 from plone.testing.z2 import Browser

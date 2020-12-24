@@ -85,7 +85,7 @@
     />
   <javascript authenticated="False" bundle="default" cacheable="True"
     compression="safe" conditionalcomment="" cookable="True" enabled="True"
-    expression="" id="++resource++land.copernicus.theme.design.js"
+    expression="" id="++resource++insitu.copernicus.theme.design.js"
     inline="False" />
 
   <javascript authenticated="False" bundle="default" cacheable="True"
@@ -102,11 +102,11 @@
   />
   <javascript authenticated="False" bundle="default" cacheable="True"
     compression="none" conditionalcomment="" cookable="True" enabled="True"
-    expression="" id="++resource++land.copernicus.theme.bootstrap-min.js"
+    expression="" id="++resource++insitu.copernicus.theme.bootstrap-min.js"
     inline="False" />
   <javascript authenticated="False" bundle="default" cacheable="True"
     compression="full" conditionalcomment="" cookable="True" enabled="True"
-    expression="" id="++resource++land.copernicus.theme.sticky-menu.js"
+    expression="" id="++resource++insitu.copernicus.theme.sticky-menu.js"
     inline="False"
   />
   <javascript authenticated="False" bundle="default" cacheable="True"

@@ -4,7 +4,7 @@ when this product is installed. -->
 <layers>
 
     <layer name="CopernicusTheme"
-        interface="land.copernicus.theme.interfaces.ICopernicusTheme" />
+        interface="insitu.copernicus.theme.interfaces.ICopernicusTheme" />
 
 
 </layers>

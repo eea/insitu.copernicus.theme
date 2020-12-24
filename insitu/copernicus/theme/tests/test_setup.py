@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from land.copernicus.theme.config import PACKAGE_NAME
-from land.copernicus.theme.testing import INTEGRATION_TESTING
+from insitu.copernicus.theme.config import PACKAGE_NAME
+from insitu.copernicus.theme.testing import INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 import unittest
