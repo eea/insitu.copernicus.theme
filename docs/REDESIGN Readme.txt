@@ -10,7 +10,7 @@ TODO
 INSITU Install Guide for New theme
 ==================================
 http://localhost:8081/copernicus/prefs_install_products_form
-    run insitu.copernicus.theme step
+    run land.copernicus.theme step
 
 In portal_skins custom remove copernicusLand.css override.
 In http://demo-insitu.eea.europa.eu/portal_css/manage_cssForm click Save
@@ -24,7 +24,7 @@ For demo-insitu: fix robots.txt:
 
 Fix images slider to work:
 In portal_javascripts/manage_jsForm add:
-    ++resource++insitu.copernicus.theme.bootstrap-min.js
+    ++resource++land.copernicus.theme.bootstrap-min.js
 
 Fix title non-ascii to fix error on news: news/towards-stronger-partnerships-and-collaboration-the-eea2019s-second-workshop-on-in-situ-coordination
 
@@ -158,9 +158,9 @@ SAMPLE COPERNICUS SERVICES:
         <p>Atmosphere</p>
       </a>
     </li>
-    <li class="insitu-insitu text-center">
-      <a href="http://insitu.copernicus.eu">
-        <img src="./insitu-logo-insitu.svg" alt="Logo Land">
+    <li class="insitu-land text-center">
+      <a href="http://land.copernicus.eu">
+        <img src="./insitu-logo-land.svg" alt="Logo Land">
         <p>Land</p>
       </a>
     </li>
@@ -195,7 +195,7 @@ SAMPLE INSITU TAGS:
     <a href="./@@search?SearchableText=open+data" class="btn btn-default insitu-btn-open-data">Open Data</a>
   </div>
   <div id="insitu-tags-2">
-    <a href="./@@search?SearchableText=insitu" class="btn btn-default insitu-btn-insitu">Land</a>
+    <a href="./@@search?SearchableText=land" class="btn btn-default insitu-btn-land">Land</a>
     <a href="./@@search?SearchableText=marine" class="btn btn-default insitu-btn-marine">Marine</a>
     <a href="./@@search?SearchableText=atmosphere" class="btn btn-default insitu-btn-atmosphere">Atmosphere</a>
     <a href="./@@search?SearchableText=emergency" class="btn btn-default insitu-btn-emergency">Emergency</a>
@@ -249,7 +249,7 @@ New theme configuration notes
 Copy: RedesignTheme/index.html to theme/static/redesign-index.html
 Copy: RedesignTheme/simple-page.html to theme/static/redesign-simple-page.html
 Copy: RedesignTheme/public/css/app.css to theme/skins/copernicus_theme_styles/redesign-app.css
-Run step: 2.4.1 for insitu.copernicus.theme
+Run step: 2.4.1 for land.copernicus.theme
 Copy: RedesignTheme/public/images files to theme/skins/copernicus_theme_images/
 Edit theme/static/redesign-index.html
     Replace ./public/css/app.css with ./redesign-app.css
@@ -275,7 +275,7 @@ ADD fixes in theme/skins/copernicus_theme_styles/redesign-app.css
 
 Edit theme/static/redesign-simple-page.html
     Fix resources
-    Add data-diazo for insitu-secondary-column
+    Add data-diazo for land-secondary-column
     Remove jquery script
 
 In Situ -> Reference data

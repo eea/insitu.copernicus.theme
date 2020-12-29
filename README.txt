@@ -1,5 +1,4 @@
-insitu.copernicus.theme static directory
-========================================
+land.copernicus.theme
+=====================
 
-The static resources and the symlinks to static resources exist here to satisfy
-the offline theme viewing requirements.
+Plone theme for land.copernicus.eu

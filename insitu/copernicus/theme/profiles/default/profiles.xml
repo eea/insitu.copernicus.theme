@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<layers>
-  <layer
-    name="insitu.copernicus.theme"
-    interface="insitu.copernicus.theme.interfaces.ICopernicusTheme"
-    />
-
-</layers>

@@ -1,4 +1,4 @@
-insitu.copernicus.theme
-=======================
+land.copernicus.theme
+=====================
 
-The Plone theme for insitu.copernicus.eu
+insitu-redesign branch contains the Plone theme for insitu.copernicus.eu
