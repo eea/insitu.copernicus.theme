@@ -3,6 +3,7 @@ Changelog
 
 2.6.0 - (unreleased)
 --------------------
+- Fix: newsletter link.
 - Fix: sitemap link.
   [GhitaB #116804]
 
