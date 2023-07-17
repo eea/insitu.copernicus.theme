@@ -7114,3 +7114,12 @@ form#insitu-search input.search-bar {
   height: auto !important;
   border: none;
 }
+
+.homepage div[data-diazo=insitu-events-list],
+.homepage div[data-diazo=insitu-news-list],
+.homepage div[data-diazo=insitu-reports-list],
+.homepage div[data-diazo=insitu-events-list] .panel .panel-body,
+.homepage div[data-diazo=insitu-news-list] .panel .panel-body,
+.homepage div[data-diazo=insitu-reports-list] .panel .panel-body {
+  background: transparent !important;
+}
