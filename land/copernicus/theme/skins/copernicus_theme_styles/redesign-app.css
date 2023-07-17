@@ -7105,3 +7105,12 @@ div.insitu-images-slider-container .carousel-indicators li {
 div.insitu-images-slider-container .carousel-indicators li.active {
   background-color: #783F34;
 }
+
+form#insitu-search {
+    overflow: initial !important;
+}
+
+form#insitu-search input.search-bar {
+  height: auto !important;
+  border: none;
+}
