@@ -7123,3 +7123,9 @@ div[data-diazo=insitu-news-list] .panel .panel-body,
 div[data-diazo=insitu-reports-list] .panel .panel-body {
   background: transparent !important;
 }
+.simple-page div[data-diazo=insitu-events-list] .panel .panel-body,
+.simple-page div[data-diazo=insitu-news-list] .panel .panel-body,
+.simple-page div[data-diazo=insitu-reports-list] .panel .panel-body {
+  background: #fbfbfb !important;
+  border-radius: 8px;
+}
